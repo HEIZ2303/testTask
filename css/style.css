@@ -1,0 +1,8 @@
+.table {
+    background-color: lightgoldenrodyellow;
+    border-collapse: collapse;
+}
+.description {
+    padding-left: 5px;
+    padding-right: 5px;
+}
