@@ -1,30 +1,23 @@
 <?php
 
 //Подключение класса
-require_once ('../class/CProducts.php');
+require_once('../class/CProducts.php');
 // Обновление видимости товаров в таблице
 $CProducts = new CProducts();
-$conn = $CProducts->connectDB();
 
-if(isset($_POST['visibility'])){
-    $visibility = $_POST['visibility'];
-    $query = sprintf('UPDATE Products SET VISIBILITY = 0 WHERE ID=%s', $visibility);
-
-    if ($conn->query($query) === TRUE) {
-        echo "Данные успешно обновлены";
+if (isset($_POST['btnId'])) {
+    if ($CProducts->hide($_POST['btnId'])) {
+        echo "ok";
     } else {
-        echo "Ошибка: " . $conn->error;
+        echo "error";
     }
 }
 
-if(isset($_POST['quantity'], $_POST['id'])) {
-    $quantity = $_POST['quantity'];
-    $id = $_POST['id'];
-    $query = sprintf('UPDATE Products SET PRODUCT_QUANTITY = %d WHERE ID=%d', $quantity, $id);
-    if ($conn->query($query) === TRUE) {
-        echo $quantity;
+if (isset($_POST['quantity'], $_POST['id'])) {
+    if ($CProducts->changeQuantity($_POST['quantity'], $_POST['id'])) {
+        echo "ok";
     } else {
-        echo "Ошибка: " . $conn->error;
+        echo "error";
     }
 }
 

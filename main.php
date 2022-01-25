@@ -7,11 +7,13 @@
                       VALUES (4, 'Товар 5', 600, 'Lorem Ipsum - это текст5', 4, NOW())";*/
 require_once ('class/CProducts.php');
 
-    function createTable()
+    function showTable()
     {
-
         $products = new CProducts();
-        $data = $products->selectData();
+
+        $data = $products->selectData(5); // Что бы ограничить вывод, нужно передать число равное желаемому числу строк.
+        var_dump($data);
+        exit;
         echo '<script src="/js/jquery-3.6.0.js"></script>';
         echo '<link rel="stylesheet" href="/css/style.css">';
         $table = '<table border="1" id="table" class="table" >
@@ -56,7 +58,7 @@ require_once ('class/CProducts.php');
 
     }
 
-    createTable();
+    showTable();
 
 
 

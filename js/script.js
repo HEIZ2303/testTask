@@ -12,7 +12,7 @@ btn.forEach(function (item,i , arr){
             url: 'ajax/update.php',
             method: 'POST',
             dataType: 'text',
-            data: {'visibility': ids[i].innerText},
+            data: {'btnId': ids[i].innerText},
             success: function(data){
                 console.log(data);
             },
