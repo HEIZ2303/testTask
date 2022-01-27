@@ -12,8 +12,6 @@ require_once ('class/CProducts.php');
         $products = new CProducts();
 
         $data = $products->selectData(5); // Что бы ограничить вывод, нужно передать число равное желаемому числу строк.
-        var_dump($data);
-        exit;
         echo '<script src="/js/jquery-3.6.0.js"></script>';
         echo '<link rel="stylesheet" href="/css/style.css">';
         $table = '<table border="1" id="table" class="table" >
